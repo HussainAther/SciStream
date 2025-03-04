@@ -1,69 +1,91 @@
-# SciStream
+# 🌍 SciStream – The Future of Live Research & Coding
 
-SciStream is a revolutionary web platform designed to empower scientists and programmers to share their research in real-time through live streaming. Our prototype features user authentication, a streaming dashboard, and basic chat functionality, providing a seamless experience for both streamers and viewers. With SciStream, researchers can engage with a global audience, foster collaboration, and accelerate the pace of scientific discovery. Join us as we revolutionize the way research is shared and communicated, one stream at a time.
+> **"The way research is shared is outdated – let's make it live."**
 
-We plan to make SciStream platform unique and tailored to scientists and programmers, 
+SciStream is an **open-source live-streaming platform** built for **scientists, programmers, and researchers** to share their work in **real-time**. Think of it as **Twitch for Science & Coding** – a place where you can stream experiments, debug models, run live coding sessions, and collaborate globally.
 
-## Research-Centric Features:
+---
 
-Provide specialized tools and features for sharing research findings, data visualizations, code snippets, and project updates in real-time during live streams.
-Integrate support for popular scientific programming languages and tools (e.g., Python, R, MATLAB, Jupyter Notebooks) to facilitate live coding sessions, data analysis, and modeling demonstrations.
-Implement features for sharing and annotating research papers, datasets, and references during streams, fostering collaboration and knowledge sharing among viewers.
+## 🚀 Why SciStream?
 
-## Interactive Learning and Collaboration:
+✅ **Live Streaming for Researchers & Devs** – Share coding, ML models, experiments in real-time.\
+✅ **Real-Time Collaboration** – Integrated chat, code-sharing, and interactive Q&A.\
+✅ **Jupyter & Python Support** – Stream **Jupyter Notebooks, Python scripts, R code** seamlessly.\
+✅ **Secure & Open-Source** – Fully **self-hostable** with **privacy controls** for research teams.\
+✅ **WebRTC + WebSockets** – Low-latency streaming + real-time chat for full engagement.
 
-Enable real-time collaboration and pair programming among streamers and viewers through features like shared code editors, whiteboards, and collaborative note-taking tools.
-Facilitate interactive Q&A sessions, brainstorming discussions, and peer review sessions during streams, allowing viewers to ask questions, provide feedback, and contribute to ongoing research projects.
+---
 
-## Community Building and Networking:
+## 🎥 **Demo (Coming Soon!)**
 
-Create specialized channels, forums, or discussion groups within the platform for different scientific disciplines, research topics, and programming languages, fostering a sense of community and belonging among users.
-Organize virtual meetups, workshops, and hackathons within the platform to facilitate networking, skill-sharing, and interdisciplinary collaborations among scientists and programmers.
+💡 *Watch SciStream in action! A short demo GIF will be placed here.*
 
-## Professional Development Resources:
+---
 
-Offer educational resources, tutorials, and training materials tailored to the needs of scientists and programmers, covering topics such as data analysis, machine learning, scientific computing, software development best practices, and research methodologies.
-Partner with universities, research institutions, and industry experts to provide exclusive workshops, seminars, and certification programs for platform users, enhancing their professional development and career growth.
+## 🔥 **Quick Start**
 
-## Data Privacy and Security:
+Want to set up SciStream locally? Run these commands:
 
-Implement robust data privacy and security measures to protect sensitive research data, intellectual property, and personal information shared on the platform.
-Provide options for users to control access permissions, share content securely, and adhere to data protection regulations (e.g., GDPR, HIPAA) when streaming sensitive research data or collaborating with colleagues.
+```bash
+# Clone the repo
+git clone https://github.com/SciStream/SciStream.git
+cd SciStream
 
-## Customization and Personalization:
+# Install dependencies
+pip install -r requirements.txt
 
-Allow users to customize their streaming profiles, channel layouts, and content preferences to reflect their research interests, expertise, and personal branding.
-Provide personalized recommendations, notifications, and alerts based on users' streaming history, engagement patterns, and collaborative interests, enhancing user experience and content discovery.
+# Run migrations
+python manage.py migrate
 
-## VR Integration
+# Start the server
+python manage.py runserver
+```
 
-Virtual Labs and Environments:
+Now visit `` in your browser. 🎉
 
-Create immersive virtual laboratory environments for conducting experiments and visualizing scientific phenomena.
-Offer interactive simulations and experiments for hands-on exploration in VR.
-Immersive Data Visualization:
+---
 
-Develop VR-based data visualization tools for exploring complex datasets and scientific simulations.
-Integrate volumetric rendering and spatial mapping for immersive data analysis during live streams.
-Collaborative VR Meetings:
+## 👩‍💻 **How to Contribute**
 
-Enable real-time collaboration and discussions in virtual meeting spaces using VR headsets.
-Facilitate virtual presentations and brainstorming sessions for remote teams.
-VR Code Editing and Programming:
+We ❤️ open-source contributors! Here's how you can help:
 
-Provide VR-based code editors and programming environments for immersive software development.
-Support collaborative coding sessions and spatial code visualization in VR.
-Virtual Conferences and Events:
+1. **Fork & Star** this repo ⭐
+2. **Pick an issue** – Look for `good first issue` or `help wanted` tags.
+3. **Create a PR** – Follow our [contribution guide](CONTRIBUTING.md).
+4. **Join the community** – Engage with us on [Discord](#) and [Twitter/X](#).
 
-Host virtual conferences and workshops within immersive VR environments.
-Offer virtual exhibition halls and poster sessions for presenting research projects.
-VR Training and Education:
+📌 **Looking for Hacktoberfest contributors?** We’ll have open tasks during Hacktoberfest 2025!
 
-Deliver VR-based training modules and educational content for learning scientific concepts and programming skills.
-Create immersive learning experiences with realistic simulations and scenarios.
-User Experience Design for VR:
+---
 
-Design intuitive VR user interfaces optimized for spatial interaction and comfort.
-Ensure compatibility with a variety of VR headsets and controllers for a seamless experience.
+## 📅 Roadmap
+
+🔹 **MVP Launch** – Basic live streaming, chat, and user authentication ✅\
+🔹 **Jupyter Integration** – Allow live-streaming Jupyter Notebooks 🛠️\
+🔹 **Multi-User Streaming** – Co-streaming for research teams 🚀\
+🔹 **WebRTC Upgrade** – Improve low-latency performance 🔥
+
+---
+
+## ✨ Contributors
+
+Big thanks to our contributors who make SciStream better every day! 🚀
+
+
+
+Want to be featured here? **Join the team!**
+
+---
+
+## 📢 Spread the Word!
+
+If you like this project, help us grow:
+
+- ⭐ **Star this repo!**
+- 🐦 **Tweet about SciStream!**
+- 💬 **Share in developer communities!**
+- 🤝 **Contribute!**
+
+📌 **Let's make live research the new standard!**
 
 
