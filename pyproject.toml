@@ -1,0 +1,11 @@
+[tool.ruff]
+target-version = "py310"
+line-length = 120
+extend-exclude = ["scistream/streams/migrations"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B"]
+
+[tool.black]
+line-length = 120
+target-version = ["py310"]

@@ -1,17 +1,12 @@
+"""Public and API routes for the focused research-session demo."""
+
 from django.urls import path
-from .views import (
-    start_stream,
-    stop_stream,
-    list_streams,
-    get_stream_key,
-    regenerate_stream_key,
-)
+
+from . import views
 
 urlpatterns = [
-    path("start/", start_stream, name="start_stream"),
-    path("stop/<int:stream_id>/", stop_stream, name="stop_stream"),
-    path("list/", list_streams, name="list_streams"),
-    path("stream/key/", get_stream_key, name="get_stream_key"),
-    path("stream/key/regenerate/", regenerate_stream_key, name="regenerate_stream_key"),
+    path("", views.index, name="index"),
+    path("api/execute/", views.execute_code, name="execute_code"),
+    path("api/assistant/", views.assistant, name="assistant"),
+    path("api/summary/", views.generate_summary, name="generate_summary"),
 ]
-

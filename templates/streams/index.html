@@ -1,0 +1,155 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Live collaborative research sessions with code, discussion, and AI-generated documentation.">
+    <title>SciStream — Live research, documented</title>
+    <link rel="icon" href="data:,">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'streams/app.css' %}">
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="SciStream home"><span class="brand-mark">S</span><span>SciStream</span></a>
+        <div class="topbar-actions">
+          <span class="demo-label"><span class="status-dot"></span> Local demo</span>
+          <button class="button button-primary button-small" data-open-setup>Start research session</button>
+        </div>
+      </header>
+
+      <main id="landing">
+        <section class="hero">
+          <div class="eyebrow">A live lab notebook for collaborative teams</div>
+          <h1>Research is better<br>when it happens <em>together.</em></h1>
+          <p class="hero-copy">Live collaborative research sessions with code, discussion, and AI-generated documentation—for scientists, programmers, and students.</p>
+          <div class="hero-actions">
+            <button class="button button-primary" data-open-setup>Start research session <span aria-hidden="true">→</span></button>
+            <a class="text-link" href="#workflow">See the 3-minute workflow <span aria-hidden="true">↓</span></a>
+          </div>
+          <div class="trust-row" aria-label="Product capabilities">
+            <span>Notebook-style coding</span><span>Live Q&amp;A</span><span>Context-aware AI</span><span>Markdown records</span>
+          </div>
+        </section>
+
+        <section class="preview-wrap" aria-label="SciStream research room preview">
+          <div class="preview-window">
+            <div class="preview-toolbar"><span class="window-dots">● ● ●</span><span>Protein Decay Analysis</span><span class="live-pill">● LIVE · 4</span></div>
+            <div class="preview-grid">
+              <div class="preview-video">
+                <div class="video-avatar">AK</div>
+                <div class="video-caption"><strong>Dr. Amara Khan</strong><span>Explaining the decay model</span></div>
+              </div>
+              <div class="preview-code"><span class="cell-index">[1]</span><pre><code><b>import</b> math
+
+half_life = <i>3.0</i>
+decay = math.log(<i>2</i>) / half_life
+
+<b>for</b> time <b>in</b> range(<i>0</i>, <i>13</i>, <i>2</i>):
+    remaining = <i>100</i> * math.exp(-decay * time)</code></pre></div>
+              <div class="preview-chat"><p class="panel-kicker">LIVE DISCUSSION</p><div class="mini-message"><b>Maya</b><span>Why does the rate slow over time?</span></div><div class="mini-message ai"><b>✦ SciStream AI</b><span>The same fraction decays in each interval, not the same amount.</span></div></div>
+              <div class="preview-output"><span>OUTPUT</span><div class="spark-bars"><i style="height:100%"></i><i style="height:68%"></i><i style="height:45%"></i><i style="height:30%"></i><i style="height:20%"></i><i style="height:12%"></i></div><b>Half-life: 3.0 h</b></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="workflow" id="workflow">
+          <div class="section-intro"><span class="eyebrow">One focused workflow</span><h2>From live question to useful record.</h2><p>Ordinary streaming shows the moment. SciStream preserves the reasoning behind it.</p></div>
+          <div class="steps">
+            <article><span>01</span><h3>Open a room</h3><p>Name the research goal and choose a notebook type.</p></article>
+            <article><span>02</span><h3>Run the experiment</h3><p>Execute a reproducible scientific example and inspect the result.</p></article>
+            <article><span>03</span><h3>Discuss with context</h3><p>Capture participant questions and ask AI to explain what matters.</p></article>
+            <article><span>04</span><h3>Leave with a record</h3><p>Generate, copy, or download a clean Markdown session summary.</p></article>
+          </div>
+        </section>
+      </main>
+
+      <main id="room" class="room hidden" aria-live="polite">
+        <div class="room-header">
+          <div><button class="back-button" id="leave-room" aria-label="Leave session">←</button><span class="live-pill">● LIVE</span><h1 id="room-title">Untitled session</h1><p id="room-goal"></p></div>
+          <div class="room-meta"><span>Python notebook</span><span>4 participants</span><button id="generate-summary" class="button button-primary button-small">Generate summary</button></div>
+        </div>
+
+        <div class="room-layout">
+          <section class="workspace-column">
+            <div class="host-stage card">
+              <div class="stage-copy"><span class="panel-kicker">LOCAL HOST PREVIEW</span><h2>Live workspace share</h2><p>This reliable demo substitute represents the host’s video or screen share.</p><span class="share-chip">▣ Notebook window shared</span></div>
+              <div class="host-card"><div class="host-avatar">AK</div><span><b>Dr. Amara Khan</b><small>Host · presenting</small></span><span class="mic">●</span></div>
+            </div>
+
+            <div class="notebook card">
+              <div class="panel-header"><div><span class="panel-kicker">RESEARCH NOTEBOOK</span><h2>decay_analysis.py</h2></div><div class="kernel"><span></span> Python 3 · Demo kernel</div></div>
+              <div class="cell">
+                <div class="cell-gutter">In [1]</div>
+                <textarea id="code-editor" spellcheck="false" aria-label="Python code editor">import math
+
+half_life = 3.0
+decay = math.log(2) / half_life
+
+print("Exponential decay experiment")
+for time in range(0, 13, 2):
+    remaining = 100 * math.exp(-decay * time)
+    print(time, remaining)</textarea>
+              </div>
+              <div class="cell-actions"><button id="reset-code" class="button button-ghost button-small">Reset sample</button><button id="run-code" class="button button-run button-small"><span>▶</span> Run cell</button></div>
+              <div class="output-block" id="output-block">
+                <div class="output-label">OUT [1]</div>
+                <div class="empty-output" id="output-empty"><span>⌁</span><p>Run the cell to see observations and a visual result.</p></div>
+                <div id="output-result" class="hidden"><pre id="stdout"></pre><div class="result-chart" id="result-chart" aria-label="Exponential decay chart"></div><p id="important-output" class="important-output"></p></div>
+              </div>
+            </div>
+          </section>
+
+          <aside class="collaboration-column">
+            <section class="card chat-panel">
+              <div class="panel-header"><div><span class="panel-kicker">PARTICIPANT CHAT</span><h2>Discussion</h2></div><span class="count-badge">4</span></div>
+              <div id="chat-messages" class="messages">
+                <div class="message"><div class="avatar coral">M</div><div><p><b>Maya Chen</b><time>now</time></p><span>What does the half-life tell us physically?</span></div></div>
+                <div class="message"><div class="avatar blue">L</div><div><p><b>Leo Martins</b><time>now</time></p><span>Could measurement noise change the conclusion?</span></div></div>
+              </div>
+              <form id="chat-form" class="composer"><label class="sr-only" for="chat-input">Ask a participant question</label><input id="chat-input" maxlength="500" placeholder="Ask a question…" required><button aria-label="Send question">↑</button></form>
+            </section>
+
+            <section class="card ai-panel">
+              <div class="panel-header"><div><span class="panel-kicker ai-kicker">✦ SCISTREAM AI</span><h2>Research assistant</h2></div><span class="mode-badge" id="ai-mode">DEMO</span></div>
+              <div id="ai-messages" class="ai-messages"><div class="ai-welcome"><span>✦</span><p>I use only this session’s title, goal, code, output, and selected participant question.</p></div></div>
+              <div class="quick-actions">
+                <button data-ai-action="explain_code">Explain code</button><button data-ai-action="summarize_output">Summarize output</button><button data-ai-action="answer_question">Answer latest question</button><button data-ai-action="next_experiment">Suggest next experiment</button>
+              </div>
+            </section>
+
+            <section class="card timeline-panel">
+              <div class="panel-header"><div><span class="panel-kicker">SESSION LOG</span><h2>Activity</h2></div></div>
+              <ol id="timeline"><li><span></span><div><b>Session started</b><small>Just now</small></div></li></ol>
+            </section>
+          </aside>
+        </div>
+      </main>
+    </div>
+
+    <dialog id="setup-dialog" class="modal">
+      <form id="setup-form" method="dialog">
+        <button type="button" class="modal-close" data-close-modal aria-label="Close">×</button>
+        <span class="eyebrow">Start a focused session</span><h2>What are you exploring?</h2><p>Set the context that participants and the research assistant will use.</p>
+        <label>Session title<input id="session-title" maxlength="200" value="Protein Decay Analysis" required></label>
+        <label>Research question<textarea id="session-goal" maxlength="1000" required>How quickly does the sample decay, and what does its half-life tell us?</textarea></label>
+        <label>Notebook type<select id="session-language"><option>Python notebook</option><option disabled>R notebook — coming later</option><option disabled>Julia notebook — coming later</option></select></label>
+        <div id="setup-error" class="form-error" role="alert"></div>
+        <button class="button button-primary" type="submit">Open research room <span>→</span></button>
+        <small>Runs locally in deterministic demo mode. No external credentials required.</small>
+      </form>
+    </dialog>
+
+    <dialog id="summary-dialog" class="modal summary-modal">
+      <div><button type="button" class="modal-close" data-close-summary aria-label="Close">×</button><span class="eyebrow">Session artifact</span><h2>Research summary</h2><p>Review, copy, or download this Markdown record.</p><textarea id="summary-text" readonly aria-label="Generated Markdown summary"></textarea><div class="summary-actions"><button id="copy-summary" class="button button-ghost">Copy Markdown</button><button id="download-summary" class="button button-primary">Download .md</button></div><p id="summary-status" class="form-status" role="status"></p></div>
+    </dialog>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script>window.SCISTREAM = { csrfToken: "{{ csrf_token }}" };</script>
+    <script src="{% static 'streams/app.js' %}" defer></script>
+  </body>
+</html>
