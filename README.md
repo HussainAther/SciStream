@@ -4,6 +4,7 @@
 
 SciStream is a focused hackathon prototype for scientists, programmers, educators, and students who want to show not only a result, but the live reasoning that produced it.
 
+Devpost link: https://devpost.com/software/scistream
 ## The problem
 
 Code repositories are excellent records after work is complete. Video calls and streams help while work is happening, but usually separate the code, questions, explanations, and decisions. SciStream combines those artifacts in one notebook-inspired research room and turns the session into a reusable Markdown record.
